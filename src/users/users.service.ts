@@ -104,6 +104,21 @@ export class UsersService {
     }
   }
 
+  async findById(id: string) {
+    try {
+      const user = await this.userModel.findById(id);
+      if (!user) {
+        throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      }
+      return this.removePassword(user);
+    } catch (error) {
+      throw new HttpException(
+        'Internal Server Error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
   async refreshToken(refreshToken: string) {
     try {
       const user = await this.jwtSvc.verify(refreshToken, {
