@@ -76,10 +76,6 @@ export class UsersService {
     };
   }
 
-  async findById(id: string) {
-    return this.userModel.findById(id);
-  }
-
   async loginUser(email: string, password: string) {
     try {
       const user = await this.userModel.findOne({ email });
@@ -156,10 +152,6 @@ export class UsersService {
     });
 
     return { employeesActives, employeesInactives };
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
