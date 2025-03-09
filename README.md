@@ -1,3 +1,26 @@
+## Instalacion
+
+```shell
+npm install
+```
+
+
+
+## Requisitos
+
+```shell
+NodeV >19
+mongodb
+```
+
+## Variables de entorno
+```shell
+PORT=3000
+JWT_SECRET=unow
+REFRESH_SECRET=unowRefresh
+MONGO_URI=mongodb://localhost:27017
+```
+
 ## Endpoints
 
 ### Autenticación
